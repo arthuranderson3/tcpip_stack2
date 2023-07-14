@@ -1,3 +1,7 @@
+# Build dir
+build
+.vscode/
+
 # Prerequisites
 *.d
 
