@@ -7,3 +7,7 @@ run:
 
 format:
 	git clang-format
+
+test:
+	cmake -S src/. -B src/build
+	cd src/build && ${MAKE} && ctest 	

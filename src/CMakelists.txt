@@ -19,11 +19,18 @@ add_executable(tcpipapp main.cpp)
 
 enable_testing()
 
-add_executable(mac_test mac_test.cpp mac.cpp)
+add_executable(netimpl_test impl/netimpl_test.cpp impl/netimpl.cpp)
 target_link_libraries(
-  mac_test
+  netimpl_test
+  GTest::gtest_main
+)
+
+add_executable(net_test net_test.cpp net.cpp impl/netimpl.cpp)
+target_link_libraries(
+  net_test
   GTest::gtest_main
 )
 
 include(GoogleTest)
-gtest_discover_tests(mac_test)
+gtest_discover_tests(netimpl_test)
+gtest_discover_tests(net_test)
